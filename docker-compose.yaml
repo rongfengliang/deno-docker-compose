@@ -1,7 +1,15 @@
 version: "3"
 services:
   app:
-   image: maxmcd/deno:slim
-   volumes:
-   - "./app:/opt"
-   command: deno /opt/app.ts
+    image: maxmcd/deno:slim
+    volumes:
+    - "./app:/opt"
+    command: deno /opt/app.ts
+  file-server:
+    image: maxmcd/deno:slim
+    ports:
+    - "4500:4500"
+    volumes:
+    - "./server:/opt/server"
+    command: deno /opt/server/app.ts --allow-net
+    
