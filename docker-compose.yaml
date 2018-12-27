@@ -11,5 +11,6 @@ services:
     - "4500:4500"
     volumes:
     - "./server:/opt/server"
+    - "./done-compile:/root"
     command: deno /opt/server/app.ts --allow-net
     
